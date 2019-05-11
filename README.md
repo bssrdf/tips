@@ -1196,7 +1196,10 @@ git config --global url.'git@github.com:'.insteadOf 'https://github.com/'
 git status --porcelain | awk '$1 == "D" {print $2}' | xargs git reset --
 git status --porcelain | awk '$1 == "D" {print $2}' | xargs git checkout --
 ```
-
+## exclude a specific submodule from update
+```sh
+git -c submodule."modules/submodule".update=none submodule update --init --recursive
+```
 
 
 <!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
