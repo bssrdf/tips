@@ -1191,5 +1191,13 @@ git rebase --onto <new_base> <old_base>
 git config --global url.'git@github.com:'.insteadOf 'https://github.com/'
 ```
 
+## Unstage all deleted files and then get them back
+```sh
+git status --porcelain | awk '$1 == "D" {print $2}' | xargs git reset --
+git status --porcelain | awk '$1 == "D" {print $2}' | xargs git checkout --
+```
+
+
+
 <!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
 <!-- @doxie.inject end -->
